@@ -1,36 +1,192 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI研究者ポートフォリオサイト
 
-## Getting Started
+東北大学大学院でAI・機械学習・コンピュータビジョンを研究する鶴巻敬大のポートフォリオサイトです。
 
-First, run the development server:
+## 🌟 特徴
+
+- **モダンなデザイン**: Next.js 15 + TypeScript + Tailwind CSSで構築
+- **レスポンシブ対応**: モバイルファースト設計
+- **アニメーション**: Framer Motionによるスムーズなアニメーション
+- **SEO最適化**: 完全なメタデータ設定
+- **アクセシビリティ**: WCAG準拠のアクセシブルなUI
+
+## 📂 プロジェクト構成
+
+```
+src/
+├── app/
+│   ├── globals.css     # グローバルスタイル
+│   ├── layout.tsx      # レイアウト・メタデータ
+│   └── page.tsx        # メインページ
+├── components/
+│   ├── Header.tsx      # ヘッダー・ナビゲーション
+│   ├── Hero.tsx        # ヒーローセクション
+│   ├── About.tsx       # 自己紹介・経歴
+│   ├── Projects.tsx    # プロジェクト一覧
+│   ├── Research.tsx    # 研究・論文
+│   ├── Experience.tsx  # 職歴・受賞歴
+│   └── Contact.tsx     # 連絡先
+├── data/
+│   └── profile.ts      # プロフィールデータ
+└── lib/
+    └── utils.ts        # ユーティリティ関数
+```
+
+## 🔧 技術スタック
+
+### フロントエンド
+- **Next.js 15**: React フレームワーク
+- **TypeScript**: 型安全性
+- **Tailwind CSS**: スタイリング
+- **Framer Motion**: アニメーション
+- **Lucide React**: アイコン
+
+### 開発・品質管理
+- **ESLint**: コード品質チェック
+- **TypeScript**: 型チェック
+- **Responsive Design**: 全デバイス対応
+
+## 🚀 開発手順
+
+### 1. 依存関係のインストール
+
+```bash
+npm install
+```
+
+### 2. 開発サーバーの起動
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+開発サーバーが起動し、[http://localhost:3000](http://localhost:3000)でアクセス可能です。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. プロダクションビルド
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+```
 
-## Learn More
+### 4. コード品質チェック
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📝 カスタマイズ方法
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### プロフィール情報の更新
 
-## Deploy on Vercel
+`src/data/profile.ts`ファイルを編集してプロフィール情報を更新できます：
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```typescript
+export const profileData = {
+  name: "あなたの名前",
+  title: "あなたの専門分野",
+  // ... その他の情報
+}
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 新しいプロジェクトの追加
+
+`profile.ts`の`projects`配列に新しいプロジェクトを追加：
+
+```typescript
+{
+  id: 4,
+  title: "新しいプロジェクト",
+  description: "プロジェクトの説明",
+  technologies: ["Python", "React"],
+  category: "research",
+  status: "completed",
+  github: "https://github.com/username/project",
+  demo: "https://demo.com"
+}
+```
+
+### 研究成果の追加
+
+`publications`配列に新しい論文・発表を追加：
+
+```typescript
+{
+  title: "論文のタイトル",
+  authors: ["著者名"],
+  venue: "学会名",
+  type: "paper",
+  year: "2025",
+  status: "published"
+}
+```
+
+## 🎨 デザインシステム
+
+### カラーパレット
+- **プライマリ**: Blue (600-800)
+- **セカンダリ**: Purple (600-800)
+- **アクセント**: Green, Yellow, Orange
+- **グレースケール**: Gray (50-900)
+
+### タイポグラフィ
+- **見出し**: Geist Sans (600-700)
+- **本文**: Geist Sans (400-500)
+- **コード**: Geist Mono
+
+### アニメーション
+- **入場**: Fade in + Slide up
+- **ホバー**: Scale + Shadow
+- **スクロール**: Smooth scroll behavior
+
+## 📱 レスポンシブ対応
+
+- **Mobile**: 320px-768px
+- **Tablet**: 768px-1024px
+- **Desktop**: 1024px以上
+
+## 🔍 SEO最適化
+
+- **メタタグ**: タイトル、説明、キーワード
+- **Open Graph**: SNSでの共有最適化
+- **Twitter Cards**: Twitter専用メタデータ
+- **構造化データ**: 検索エンジン最適化
+
+## 🌐 デプロイ
+
+### Vercel (推奨)
+
+```bash
+npm install -g vercel
+vercel
+```
+
+### Netlify
+
+1. プロジェクトをGitHubにプッシュ
+2. Netlifyでリポジトリを接続
+3. ビルドコマンド: `npm run build`
+4. 公開ディレクトリ: `.next`
+
+## 🤝 コントリビューション
+
+1. フォークしてクローン
+2. 新しいブランチを作成
+3. 変更をコミット
+4. プルリクエストを送信
+
+## 📄 ライセンス
+
+このプロジェクトはMITライセンスの下で公開されています。
+
+## 🙏 謝辞
+
+- [Next.js](https://nextjs.org/) - Reactフレームワーク
+- [Tailwind CSS](https://tailwindcss.com/) - CSSフレームワーク
+- [Framer Motion](https://www.framer.com/motion/) - アニメーションライブラリ
+- [Lucide](https://lucide.dev/) - アイコンライブラリ
+
+---
+
+**作成者**: 鶴巻敬大  
+**連絡先**: takahiro.tsurumaki@example.com  
+**GitHub**: https://github.com/username
