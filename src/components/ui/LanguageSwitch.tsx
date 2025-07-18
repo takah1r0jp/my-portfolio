@@ -1,7 +1,6 @@
 "use client";
 
 import { useLanguage } from "../LanguageProvider";
-import { Button } from "./Button";
 import { Globe } from "lucide-react";
 
 export function LanguageSwitch() {
@@ -12,17 +11,28 @@ export function LanguageSwitch() {
   };
 
   return (
-    <Button
-      variant="ghost"
-      size="sm"
+    <button
       onClick={toggleLanguage}
-      className="flex items-center gap-2"
       aria-label={`Switch to ${language === 'ja' ? 'English' : 'Japanese'}`}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem',
+        color: '#000000',
+        background: 'transparent',
+        border: 'none',
+        fontSize: '14px',
+        fontWeight: '300',
+        cursor: 'pointer',
+        transition: 'opacity 0.3s ease',
+        padding: '0',
+        margin: '0',
+      }}
+      onMouseEnter={(e) => (e.target as HTMLButtonElement).style.opacity = '0.6'}
+      onMouseLeave={(e) => (e.target as HTMLButtonElement).style.opacity = '1'}
     >
       <Globe size={16} />
-      <span className="text-sm font-medium">
-        {language === 'ja' ? 'EN' : 'JP'}
-      </span>
-    </Button>
+      <span>{language === 'ja' ? 'EN' : 'JP'}</span>
+    </button>
   );
 }

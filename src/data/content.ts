@@ -12,12 +12,12 @@ export const translations = {
     
     // Hero Section
     hero: {
-      title: "鶴巻 敬大",
-      subtitle: "AI Research & Development",
+      title: "Takahiro Tsurumaki",
+      subtitle: "鶴巻 敬大",
       description: "Computer Vision · Anomaly Detection · Machine Learning",
       affiliation: "東北大学大学院 情報科学研究科",
       location: "仙台, 日本",
-      introduction: "画像認識・コンピュータビジョン専門のAI研究者として、産業用画像の異常検知手法の開発に取り組んでいます。東北大学工学部で3.5年での早期卒業を経て、現在は東北大学大学院情報科学研究科の修士課程で最先端の研究を行っています。"
+      introduction: "東北大学工学部を3.5年で早期卒業し、現在は東北大学大学院情報科学研究科で画像認識・コンピュータビジョンを専門とする修士課程の学生です。産業用画像の異常検知手法の研究開発に従事し、学会発表やハッカソンでの受賞経験も有しています。実社会の課題解決に貢献するAI技術の実装と応用に強い関心を持ち、最先端の研究と実践の両面で成長を目指しています。"
     },
 
     // Education Section
