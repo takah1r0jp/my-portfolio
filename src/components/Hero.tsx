@@ -1,152 +1,123 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { ArrowDown, Mail, Github } from "lucide-react"
-import { profileData } from "@/data/profile"
+import { Mail, Github, ExternalLink } from "lucide-react"
+import { useLanguage } from "./LanguageProvider"
 
 export default function Hero() {
-  const scrollToProjects = () => {
-    const element = document.getElementById("projects")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const scrollToContact = () => {
-    const element = document.getElementById("contact")
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
+  const { t, language } = useLanguage()
 
   return (
-    <section className="min-h-screen flex items-center justify-center bg-white pt-20">
-      <div className="max-w-4xl mx-auto px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="space-y-16"
-        >
-          {/* Main Content */}
-          <div className="space-y-8">
-            {/* Name */}
-            <motion.div
-              className="space-y-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight text-black">
-                {profileData.name}
-              </h1>
-              <div className="w-24 h-0.5 bg-black"></div>
-            </motion.div>
-
-            {/* Title & Subtitle */}
-            <motion.div
-              className="space-y-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-            >
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-mono text-gray-600 tracking-wide">
-                {profileData.title}
-              </h2>
-              <p className="text-base sm:text-lg text-gray-500 max-w-2xl font-light leading-relaxed">
-                {profileData.subtitle}
-              </p>
-            </motion.div>
-
-            {/* Affiliation */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-            >
-              <p className="text-sm text-gray-400 font-mono tracking-wider uppercase">
-                {profileData.affiliation}
-              </p>
-            </motion.div>
-
-            {/* Description */}
-            <motion.div
-              className="max-w-3xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-            >
-              <p className="text-gray-600 leading-relaxed">
-                画像認識・コンピュータビジョン専門のAI研究者として、産業用画像の異常検知手法の開発に取り組んでいます。
-                PKSHAハッカソン2025で最優秀賞を受賞し、実践的なAI開発経験を積んでいます。
-              </p>
-            </motion.div>
-          </div>
-
-          {/* Actions */}
+    <section className="pt-32 pb-32 bg-white min-h-screen flex items-center">
+      <div className="container-standard w-full">
+        <div className="max-w-4xl">
+          {/* Name */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-6"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="mb-12"
           >
-            <button
-              onClick={scrollToProjects}
-              className="group px-8 py-3 bg-black text-white font-medium text-sm tracking-wide hover-lift transition-all duration-300 hover:bg-gray-800 flex items-center gap-3"
-            >
-              VIEW PROJECTS
-              <ArrowDown className="h-4 w-4 group-hover:translate-y-0.5 transition-transform" />
-            </button>
-            
-            <button
-              onClick={scrollToContact}
-              className="group px-8 py-3 border border-gray-300 text-gray-700 font-medium text-sm tracking-wide hover-lift transition-all duration-300 hover:border-black hover:text-black flex items-center gap-3"
-            >
-              GET IN TOUCH
-              <Mail className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
-            </button>
+            <h1 className={`text-6xl sm:text-7xl lg:text-8xl text-display text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+              {t("hero.title")}
+            </h1>
           </motion.div>
 
-          {/* Social Links */}
+          {/* Subtitle */}
           <motion.div
-            className="flex items-center gap-8 pt-8"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            className="mb-16"
+          >
+            <p className="text-xl text-heading text-black opacity-70">
+              {t("hero.subtitle")}
+            </p>
+          </motion.div>
+
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            className="mb-16 space-y-8"
+          >
+            <p className="text-lg text-body text-black max-w-2xl">
+              {t("hero.description")}
+            </p>
+            <div className="space-y-2">
+              <p className="text-caption text-black opacity-60">
+                {t("hero.affiliation")}
+              </p>
+              <p className="text-caption text-black opacity-60">
+                {t("hero.location")}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Introduction */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+            className="mb-20"
+          >
+            <div className="border-l-2 border-black pl-8">
+              <p className={`text-base text-body text-black max-w-3xl ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+                {t("hero.introduction")}
+              </p>
+            </div>
+          </motion.div>
+
+          {/* Contact Links */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
+            className="flex flex-wrap gap-6"
           >
             <a
-              href={profileData.contact.github}
-              className="text-gray-400 hover:text-black transition-colors duration-300"
+              href="mailto:takahiro.cvdev@gmail.com"
+              className="inline-flex items-center gap-3 text-caption text-black hover:opacity-50 transition-opacity"
+              aria-label="Email"
+            >
+              <Mail size={16} />
+              Email
+            </a>
+            <a
+              href="https://github.com/takah1r0jp"
               target="_blank"
               rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-caption text-black hover:opacity-50 transition-opacity"
+              aria-label="GitHub"
             >
-              <Github className="h-5 w-5" />
+              <Github size={16} />
+              GitHub
             </a>
             <a
-              href={`mailto:${profileData.contact.email}`}
-              className="text-gray-400 hover:text-black transition-colors duration-300"
+              href="https://x.com/TCvlab78380"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-caption text-black hover:opacity-50 transition-opacity"
+              aria-label="X (Twitter)"
             >
-              <Mail className="h-5 w-5" />
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+              X
+            </a>
+            <a
+              href="https://qiita.com/takah1r0_tt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-3 text-caption text-black hover:opacity-50 transition-opacity"
+              aria-label="Qiita"
+            >
+              <ExternalLink size={16} />
+              Qiita
             </a>
           </motion.div>
-        </motion.div>
-
-        {/* Scroll Indicator */}
-        <motion.div
-          className="absolute bottom-12 left-1/2 transform -translate-x-1/2"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
-        >
-          <motion.button
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-            className="text-gray-300 hover:text-gray-500 cursor-pointer transition-colors"
-            onClick={scrollToProjects}
-          >
-            <ArrowDown className="h-5 w-5" />
-          </motion.button>
-        </motion.div>
+        </div>
       </div>
     </section>
   )
