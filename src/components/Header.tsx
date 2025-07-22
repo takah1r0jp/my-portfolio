@@ -5,19 +5,18 @@ import { Menu, X } from "lucide-react"
 import { useLanguage } from "./LanguageProvider"
 import { LanguageSwitch } from "./ui/LanguageSwitch"
 
-const getNavigation = (t: (key: string) => string) => [
-  { name: t("nav.education"), href: "#education" },
-  { name: t("nav.projects"), href: "#projects" },
-  { name: t("nav.experience"), href: "#work-experience" },
-  { name: t("nav.achievements"), href: "#achievements" },
-  { name: t("nav.skills"), href: "#skills" },
+const navigation = [
+  { name: "Education", href: "#education" },
+  { name: "Projects", href: "#projects" },
+  { name: "Experience", href: "#work-experience" },
+  { name: "Achievements", href: "#achievements" },
+  { name: "Skills", href: "#skills" },
 ]
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const { t } = useLanguage()
-  const navigation = getNavigation(t)
 
   useEffect(() => {
     const handleScroll = () => {
