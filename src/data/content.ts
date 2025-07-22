@@ -260,9 +260,9 @@ export const translations = {
       title: "Takahiro Tsurumaki",
       subtitle: "Master Student@Tohoku University",
       description: "Computer Vision · Anomaly Detection · LLM",
-      affiliation: "Graduate School of Information Sciences, Tohoku University",
+      affiliation: "Master Student@Tohoku University",
       location: "Sendai, Japan",
-      introduction: "As an AI researcher specializing in image recognition and computer vision, I am engaged in developing anomaly detection methods for industrial images. After early graduation from Tohoku University's Faculty of Engineering in 3.5 years, I am currently conducting cutting-edge research in the master's program at Tohoku University's Graduate School of Information Sciences."
+      introduction: "After early graduation from Tohoku University's Faculty of Engineering, Mechanical and Aerospace Engineering in 3.5 years, I am currently a first-year master's student at Tohoku University's Graduate School of Information Sciences, Systems Information Science. My research field is image recognition and anomaly detection, with a particular focus on developing anomaly detection methods for industrial images. Leveraging my experience in developing anomaly detection systems incorporating LLMs, I won the grand prize as an algorithm engineer in a hackathon. I have a strong interest in implementing and applying AI technologies that contribute to solving real-world problems, aiming to grow in both cutting-edge research and practical applications."
     },
 
     // Education Section
