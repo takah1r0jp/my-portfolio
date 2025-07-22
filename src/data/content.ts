@@ -258,7 +258,7 @@ export const translations = {
     // Hero Section
     hero: {
       title: "Takahiro Tsurumaki",
-      subtitle: "Master Student@Tohoku University",
+      subtitle: "",
       description: "Computer Vision · Anomaly Detection · LLM",
       affiliation: "Master Student@Tohoku University",
       location: "Sendai, Japan",
