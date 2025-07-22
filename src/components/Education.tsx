@@ -49,12 +49,12 @@ export default function Education() {
       <div>
         {/* Section Header */}
         <div className="mb-24">
-          <h2 className={`text-4xl sm:text-5xl font-light tracking-tight text-black mb-6 ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-            {t("education.title")}
+          <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-black mb-6">
+            Education
           </h2>
           <div className="w-16 h-px bg-black mb-8"></div>
-          <p className={`text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-            {t("education.subtitle")}
+          <p className="text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed">
+            Academic background and specialization.
           </p>
         </div>
 
