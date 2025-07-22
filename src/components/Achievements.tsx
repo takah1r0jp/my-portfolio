@@ -34,19 +34,16 @@ export default function Achievements() {
   return (
     <section id="achievements">
       <div>
-        <div className="mb-24">
-          <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-black mb-6">
+        <div className="mb-8">
+          <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-black mb-2">
             Achievements
           </h2>
-          <div className="w-16 h-px bg-black mb-8"></div>
-          <p className="text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed">
-            Notable accomplishments and recognitions.
-          </p>
+          <div className="w-16 h-px bg-black"></div>
         </div>
 
-        <div className="space-y-16">
+        <div className="space-y-6">
           {achievements.map((achievement, index) => (
-            <div key={achievement.id} className="border-b border-black pb-16 last:border-b-0">
+            <div key={achievement.id} className="border border-black/10 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-1">
                   <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-2">

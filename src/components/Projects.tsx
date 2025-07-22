@@ -97,128 +97,124 @@ export default function Projects() {
     <section id="projects">
       <div>
         {/* Section Header */}
-        <div className="mb-24">
-          <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-black mb-6">
+        <div className="mb-8">
+          <h2 className="text-3xl sm:text-4xl font-light tracking-tight text-black mb-2">
             Projects
           </h2>
-          <div className="w-16 h-px bg-black mb-8"></div>
-          <p className="text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed">
-            Research & development projects and technical implementations.
-          </p>
+          <div className="w-16 h-px bg-black"></div>
         </div>
 
         {/* Projects */}
-        <div className="space-y-24">
+        <div className="space-y-6">
           {projectsData.map((project, index) => (
-            <div key={index} className="group">
-              <div className="border-b border-black pb-16 last:border-b-0">
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                  {/* Project Number & Links */}
-                  <div className="lg:col-span-1 space-y-6">
-                    <div className="text-6xl font-light text-black opacity-20">
-                      {String(index + 1).padStart(2, '0')}
+            <div key={index} className="border border-black/10 rounded-lg p-6">
+              <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+                {/* Project Number & Links */}
+                <div className="lg:col-span-1 space-y-6">
+                  <div className="text-6xl font-light text-black opacity-20">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+                  
+                  {/* Links */}
+                  <div className="space-y-3">
+                    {project.link && (
+                      <a
+                        href={project.link}
+                        className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-black hover:opacity-50 transition-opacity"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Github size={16} />
+                        {language === 'ja' ? 'リポジトリ' : 'Repository'}
+                      </a>
+                    )}
+                    {project.demo && (
+                      <a
+                        href={project.demo}
+                        className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-black hover:opacity-50 transition-opacity"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <ExternalLink size={16} />
+                        {language === 'ja' ? 'デモ' : 'Demo'}
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Project Details */}
+                <div className="lg:col-span-4 space-y-8">
+                  {/* Title & Status */}
+                  <div>
+                    <div className="flex flex-wrap items-start gap-4 mb-4">
+                      <h3 className={`text-3xl font-light text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+                        {project.title}
+                      </h3>
+                      <div className="flex gap-2">
+                        {project.status && (
+                          <span className="text-xs font-light text-black border border-black px-2 py-1 tracking-wide uppercase">
+                            {project.status}
+                          </span>
+                        )}
+                        {project.category && (
+                          <span className="text-xs font-light text-black opacity-60 border border-black/30 px-2 py-1 tracking-wide uppercase">
+                            {project.category}
+                          </span>
+                        )}
+                      </div>
                     </div>
-                    
-                    {/* Links */}
-                    <div className="space-y-3">
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-black hover:opacity-50 transition-opacity"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github size={16} />
-                          {language === 'ja' ? 'リポジトリ' : 'Repository'}
-                        </a>
-                      )}
-                      {project.demo && (
-                        <a
-                          href={project.demo}
-                          className="flex items-center gap-2 text-sm font-light tracking-wide uppercase text-black hover:opacity-50 transition-opacity"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <ExternalLink size={16} />
-                          {language === 'ja' ? 'デモ' : 'Demo'}
-                        </a>
-                      )}
-                    </div>
+
+                    {project.achievement && (
+                      <div className="mb-4">
+                        <span className="text-sm font-light text-black opacity-80 bg-black/5 px-3 py-1 rounded">
+                          {project.achievement}
+                        </span>
+                      </div>
+                    )}
+
+                    {project.role && (
+                      <div className="mb-4">
+                        <span className="text-sm font-light text-black opacity-60">
+                          {language === 'ja' ? '役割: ' : 'Role: '}{project.role}
+                        </span>
+                      </div>
+                    )}
+
+                    <p className={`text-base font-light text-black opacity-70 leading-relaxed ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+                      {project.description}
+                    </p>
                   </div>
 
-                  {/* Project Details */}
-                  <div className="lg:col-span-4 space-y-8">
-                    {/* Title & Status */}
-                    <div>
-                      <div className="flex flex-wrap items-start gap-4 mb-4">
-                        <h3 className={`text-3xl font-light text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-                          {project.title}
-                        </h3>
-                        <div className="flex gap-2">
-                          {project.status && (
-                            <span className="text-xs font-light tracking-wide uppercase text-black opacity-60 border border-black px-2 py-1">
-                              {project.status}
-                            </span>
-                          )}
-                          {project.achievement && (
-                            <span className="text-xs font-light tracking-wide uppercase text-black bg-black text-white px-2 py-1">
-                              {project.achievement}
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                      
-                      <p className={`text-base font-light text-black opacity-70 leading-loose max-w-3xl ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-                        {project.description}
-                      </p>
-                    </div>
-
-                    {/* Role */}
-                    {project.role && (
-                      <div>
-                        <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-2">
-                          {language === 'ja' ? '役割' : 'Role'}
-                        </p>
-                        <p className={`text-base font-light text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-                          {project.role}
-                        </p>
-                      </div>
-                    )}
-
-                    {/* Features */}
-                    {project.features && (
-                      <div>
-                        <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-4">
-                          {language === 'ja' ? '主な機能・特徴' : 'Key Features'}
-                        </p>
-                        <div className="space-y-3">
-                          {project.features.map((feature, featureIndex) => (
-                            <div key={featureIndex} className="flex items-start gap-4">
-                              <div className="w-1 h-1 bg-black mt-3 flex-shrink-0"></div>
-                              <p className={`text-base font-light text-black opacity-70 leading-loose ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-                                {feature}
-                              </p>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
-                    {/* Technologies */}
+                  {/* Features */}
+                  {project.features && (
                     <div>
                       <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-4">
-                        {language === 'ja' ? '技術スタック' : 'Technologies'}
+                        {language === 'ja' ? '主な機能' : 'Key Features'}
                       </p>
-                      <div className="flex flex-wrap gap-3">
-                        {project.technologies.map((tech, techIndex) => (
-                          <span
-                            key={techIndex}
-                            className="text-sm font-light text-black opacity-60 border border-black px-3 py-1"
-                          >
-                            {tech}
-                          </span>
+                      <ul className="space-y-2">
+                        {project.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className={`text-sm font-light text-black opacity-70 ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+                            • {feature}
+                          </li>
                         ))}
-                      </div>
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Technologies */}
+                  <div>
+                    <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-4">
+                      {language === 'ja' ? '技術スタック' : 'Technologies'}
+                    </p>
+                    <div className="flex flex-wrap gap-3">
+                      {project.technologies.map((tech, techIndex) => (
+                        <span
+                          key={techIndex}
+                          className="text-sm font-light text-black opacity-60 border border-black px-3 py-1"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
