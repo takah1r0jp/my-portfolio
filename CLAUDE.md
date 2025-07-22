@@ -6,7 +6,8 @@
 ## 技術スタック
 - **フレームワーク**: Next.js 14 (App Router)
 - **言語**: TypeScript
-- **スタイリング**: Tailwind CSS
+- **スタイリング**: Tailwind CSS v4
+- **UIライブラリ**: shadcn/ui (部分的に使用)
 - **デプロイ**: Vercel
 - **アニメーション**: Framer Motion (必要に応じて)
 
@@ -128,7 +129,8 @@ src/
 │   ├── LanguageProvider.tsx # 多言語プロバイダー
 │   └── ui/
 │       ├── Card.tsx         # カードコンポーネント
-│       ├── Button.tsx       # ボタンコンポーネント
+│       ├── Button.tsx       # shadcn/uiボタンコンポーネント
+│       ├── IconWithButton.tsx # アイコン付きリンクボタン
 │       └── LanguageSwitch.tsx # 言語切り替え
 ├── data/
 │   ├── content.ts           # 多言語コンテンツ
@@ -211,4 +213,87 @@ npm run lint
 3. **一貫性**: 全セクションで統一されたスタイル
 4. **読みやすさ**: 十分なコントラストと余白の確保
 5. **プロフェッショナル**: 学術的で信頼感のある印象
+
+## Tailwind CSS v4 設定
+
+### 重要な変更点
+- **CSS設定**: 従来の`@tailwind`ディレクティブから`@import "tailwindcss"`に変更
+- **globals.css**: 最小限のリセットとユーティリティのみ (600行 → 124行に削減)
+- **PostCSS**: `@tailwindcss/postcss`プラグインを使用
+
+### globals.css構成
+```css
+@import "tailwindcss";
+@import '@fontsource/inter/400.css';
+/* ... フォントインポート */
+
+@layer base {
+  /* 基本的なリセットCSS */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+/* 必要最小限のカスタムユーティリティ */
+.container-standard { /* レスポンシブコンテナ */ }
+.section-card { /* カードレイアウト */ }
+.text-display, .text-heading, .text-body, .text-caption { /* タイポグラフィ */ }
+```
+
+## コンポーネント設計
+
+### IconWithButton
+SNS・外部リンク用のカスタムコンポーネント
+
+**特徴:**
+- shadcn/ui独立の設計
+- `<a>`タグベース（リンク用途）
+- Tailwindクラスで完全にスタイル制御
+- レスポンシブ対応
+
+**使用例:**
+```tsx
+<IconWithButton
+  href="mailto:example@email.com"
+  icon={<Mail size={16} />}
+  label="Email"
+  aria-label="Email"
+/>
+```
+
+**スタイル:**
+- 枠線: `border border-black rounded-md`
+- 背景: `bg-white`
+- ホバー: `hover:bg-gray-100`
+- 余白: インラインスタイルで調整可能
+
+### shadcn/ui統合
+- **Button**: shadcn/ui標準コンポーネント使用
+- **IconWithButton**: 独立コンポーネント（競合回避）
+- **設定**: `components.json`でnew-yorkスタイル、neutral色使用
+
+## トラブルシューティング
+
+### Tailwind クラスが効かない場合
+1. **開発サーバー再起動**: `npm run dev`
+2. **ブラウザキャッシュクリア**: Ctrl+Shift+R / Cmd+Shift+R
+3. **CSS設定確認**: `@import "tailwindcss"`が正しく記述されているか
+4. **PostCSS設定確認**: `@tailwindcss/postcss`プラグインが有効か
+
+### 予期しないスタイル競合
+- **globals.css最小化**: カスタムCSSを削減してTailwindクラス優先
+- **!importantの削除**: 強制的な上書きを避ける
+- **コンポーネント単位でのスタイリング**: グローバルCSSではなくコンポーネント内で完結
 

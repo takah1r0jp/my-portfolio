@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
 import { useLanguage } from "./LanguageProvider"
 import { LanguageSwitch } from "./ui/LanguageSwitch"
 
@@ -41,74 +40,68 @@ export default function Header() {
   }
 
   return (
-    <motion.header
-      initial={{ y: -100, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+    <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled
           ? "bg-white/95 backdrop-blur-sm border-b border-black/10"
           : "bg-transparent"
       }`}
-      style={{
-        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.95)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(8px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(0, 0, 0, 0.1)' : 'none',
-      }}
     >
-      <div className="header-container">
+      <div className="container-standard">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <motion.button
+          <button
             onClick={scrollToTop}
-            whileHover={{ opacity: 0.7 }}
-            whileTap={{ scale: 0.98 }}
-            className="text-lg font-light tracking-[0.2em] text-black transition-opacity duration-300"
-            style={{ color: '#000000' }}
+            className="text-lg font-light tracking-[0.2em] text-black transition-opacity duration-300 hover:opacity-70"
           >
             {t("hero.title")}
-          </motion.button>
+          </button>
 
-          {/* Language Switch Only */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-          >
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center space-x-6">
+            {navigation.map((item) => (
+              <button
+                key={item.name}
+                onClick={() => scrollToSection(item.href)}
+                className="text-black hover:opacity-50 transition-opacity duration-300 text-sm font-light tracking-wide whitespace-nowrap"
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
+
+          {/* Mobile Menu Button + Language Switch */}
+          <div className="flex items-center space-x-3">
             <LanguageSwitch />
-          </motion.div>
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className="lg:hidden text-black hover:opacity-50 transition-opacity duration-300"
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden bg-white border-t border-black/10"
-          >
-            <div className="header-container py-8">
-              <div className="space-y-4">
-                {navigation.map((item, index) => (
-                  <motion.button
-                    key={item.name}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    onClick={() => scrollToSection(item.href)}
-                    className="block w-full text-left text-black hover:opacity-50 transition-opacity duration-300 text-base font-light py-3 border-b border-black/5 last:border-b-0"
-                  >
-                    {item.name}
-                  </motion.button>
-                ))}
-              </div>
+      {isMenuOpen && (
+        <div className="lg:hidden bg-white border-t border-black/10">
+          <div className="container-standard py-8">
+            <div className="space-y-4">
+              {navigation.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => scrollToSection(item.href)}
+                  className="block w-full text-left text-black hover:opacity-50 transition-opacity duration-300 text-base font-light py-3 border-b border-black/5 last:border-b-0"
+                >
+                  {item.name}
+                </button>
+              ))}
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+          </div>
+        </div>
+      )}
+    </header>
   )
 }

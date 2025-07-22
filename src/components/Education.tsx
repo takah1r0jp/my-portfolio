@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { useLanguage } from "./LanguageProvider"
 
 export default function Education() {
@@ -49,13 +48,7 @@ export default function Education() {
     <section id="education">
       <div>
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-24"
-        >
+        <div className="mb-24">
           <h2 className={`text-4xl sm:text-5xl font-light tracking-tight text-black mb-6 ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
             {t("education.title")}
           </h2>
@@ -63,19 +56,12 @@ export default function Education() {
           <p className={`text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
             {t("education.subtitle")}
           </p>
-        </motion.div>
+        </div>
 
         {/* Education Items */}
         <div className="space-y-16">
           {educationItems.map((edu, index: number) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="border-b border-black pb-16 last:border-b-0"
-            >
+            <div key={index} className="border-b border-black pb-16 last:border-b-0">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 {/* Period */}
                 <div className="lg:col-span-1">
@@ -126,7 +112,7 @@ export default function Education() {
                   )}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -14,10 +14,10 @@ export const translations = {
     hero: {
       title: "Takahiro Tsurumaki",
       subtitle: "鶴巻 敬大",
-      description: "Computer Vision · Anomaly Detection · Machine Learning",
-      affiliation: "東北大学大学院 情報科学研究科",
+      description: "Computer Vision · Anomaly Detection · LLM",
+      affiliation: "Master Student@Tohoku University",
       location: "仙台, 日本",
-      introduction: "東北大学工学部を3.5年で早期卒業し、現在は東北大学大学院情報科学研究科で画像認識・コンピュータビジョンを専門とする修士課程の学生です。産業用画像の異常検知手法の研究開発に従事し、学会発表やハッカソンでの受賞経験も有しています。実社会の課題解決に貢献するAI技術の実装と応用に強い関心を持ち、最先端の研究と実践の両面で成長を目指しています。"
+      introduction: "東北大学工学部 機械知能・航空工学科を3.5年で早期卒業し、現在は東北大学大学院 情報科学研究科 システム情報科学専攻の修士1年です。研究領域は、画像認識・異常検知分野であり、特に産業用画像の異常検知手法の研究開発に従事しています。LLMを組み込んだ異常検知システムの開発経験を活かし、アルゴリズムエンジニアとして参加したハッカソンでは最優秀賞を受賞しました。実社会の課題解決に貢献するAI技術の実装と応用に強い関心を持ち、最先端の研究と実践の両面で成長を目指しています。"
     },
 
     // Education Section
@@ -258,8 +258,8 @@ export const translations = {
     // Hero Section
     hero: {
       title: "Takahiro Tsurumaki",
-      subtitle: "AI Research & Development",
-      description: "Computer Vision · Anomaly Detection · Machine Learning",
+      subtitle: "Master Student@Tohoku University",
+      description: "Computer Vision · Anomaly Detection · LLM",
       affiliation: "Graduate School of Information Sciences, Tohoku University",
       location: "Sendai, Japan",
       introduction: "As an AI researcher specializing in image recognition and computer vision, I am engaged in developing anomaly detection methods for industrial images. After early graduation from Tohoku University's Faculty of Engineering in 3.5 years, I am currently conducting cutting-edge research in the master's program at Tohoku University's Graduate School of Information Sciences."

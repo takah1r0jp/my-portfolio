@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 @import '@fontsource/inter/400.css';
 @import '@fontsource/inter/500.css';
@@ -11,313 +9,94 @@
 @import '@fontsource/noto-sans-jp/600.css';
 @import '@fontsource/jetbrains-mono/400.css';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-/* Force monochrome for all elements */
-* {
-  color: inherit;
-}
+  body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-/* Override browser defaults */
-input, textarea, select, button {
-  color: #000000;
-  background: transparent;
-  border: none;
-  box-shadow: none;
-}
+  /* Japanese font support */
+  .font-japanese {
+    font-family: 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
-/* Completely disable Tailwind button styles */
-button,
-.btn,
-[role="button"] {
-  all: unset !important;
-  display: inline-flex !important;
-  color: #000000 !important;
-  cursor: pointer !important;
-}
+  /* Remove default link styles */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
 
-/* Remove blue link colors completely */
-a, a * {
-  color: #000000 !important;
-}
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 4rem;
-}
-
-body {
-  background: #ffffff;
-  color: #000000;
-  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  min-height: 100vh;
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: #000000;
-}
-
-/* Japanese text support */
-.font-japanese {
-  font-family: 'Noto Sans JP', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Selection */
-::selection {
-  background-color: #000000;
-  color: #ffffff;
-}
-
-/* Scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #000000;
-  border-radius: 0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #333333;
-}
-
-/* Link styles - enforce monochrome */
-a,
-a:link,
-a:visited,
-a:hover,
-a:active {
-  color: #000000 !important;
-  text-decoration: none;
-  transition: opacity 0.3s ease;
-}
-
-a:hover {
-  opacity: 0.6;
-}
-
-/* External link styling */
-a[href^="http"],
-a[href^="mailto"],
-a[target="_blank"] {
-  color: #000000 !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-a[href^="http"]:hover,
-a[href^="mailto"]:hover,
-a[target="_blank"]:hover {
-  border-bottom-color: rgba(0, 0, 0, 0.6);
-  opacity: 1;
-}
-
-/* Focus styles */
-a:focus,
-button:focus {
-  outline: 2px solid #000000;
-  outline-offset: 2px;
-}
-
-/* Smooth transitions */
-* {
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-}
-
-/* Container utilities */
-.container-padding {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-@media (min-width: 1024px) {
-  .container-padding {
-    padding-left: 2rem;
-    padding-right: 2rem;
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
   }
 }
 
-.section-padding {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
-/* Monochrome colors */
-.bg-background {
-  background-color: #ffffff;
-}
-
-.bg-card {
-  background-color: #ffffff;
-}
-
-.text-text-primary {
-  color: #000000;
-}
-
-.text-text-secondary {
-  color: #666666;
-}
-
-.text-primary-600 {
-  color: #000000;
-}
-
-.text-primary-700 {
-  color: #000000;
-}
-
-.bg-primary-50 {
-  background-color: #f5f5f5;
-}
-
-.bg-primary-100 {
-  background-color: #f0f0f0;
-}
-
-.bg-primary-600 {
-  background-color: #000000;
-}
-
-.bg-primary-900 {
-  background-color: #000000;
-}
-
-.border-border {
-  border-color: #000000;
-}
-
-.border-primary-900 {
-  border-color: #000000;
-}
-
-.shadow-card {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-}
-
-.max-w-container {
-  max-width: 1200px;
-}
-
-/* Consistent layout system */
+/* Custom utility classes */
 .container-standard {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 4rem;
+  padding: 0 12rem;
 }
 
 @media (max-width: 1024px) {
   .container-standard {
-    padding: 0 3rem;
+    padding: 0 4rem;
   }
 }
 
 @media (max-width: 768px) {
   .container-standard {
-    padding: 0 2rem;
+    padding: 0 2.5rem;
   }
 }
 
 @media (max-width: 480px) {
   .container-standard {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 }
 
-/* Modern card utilities */
-.card-modern {
-  background: white;
-  border-radius: 12px;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
-}
-
-.card-modern:hover {
-  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
-  border-color: rgba(0, 0, 0, 0.12);
-}
-
-.card-minimal {
+.section-card {
+  margin: 1rem 0;
+  padding: 4rem 2rem;
   background: white;
   border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
-.card-minimal:hover {
-  border-color: rgba(0, 0, 0, 0.2);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+.section-card:hover {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
-.card-hover:hover {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  transform: translateY(-4px);
-}
-
-/* Text gradient - monochrome */
-.text-gradient {
-  color: #000000;
-}
-
-/* Subtle animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+@media (max-width: 768px) {
+  .section-card {
+    margin: 0.75rem 0;
+    padding: 3rem 1.5rem;
+    border-radius: 12px;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+@media (max-width: 480px) {
+  .section-card {
+    margin: 0.5rem 0;
+    padding: 2rem 1rem;
+    border-radius: 8px;
   }
-  to {
-    opacity: 1;
-  }
 }
 
-.fade-in-up {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-.fade-in {
-  animation: fadeIn 0.6s ease-out;
-}
-
-/* Refined hover effects */
-.hover-lift:hover {
-  transform: translateY(-2px);
-}
-
-.hover-opacity:hover {
-  opacity: 0.7;
-}
-
-/* Modern typography utilities */
-.text-ultra-light {
-  font-weight: 200;
-}
-
+/* Typography utilities */
 .text-display {
   font-weight: 300;
   line-height: 1.1;
@@ -342,156 +121,4 @@ button:focus {
   letter-spacing: 0.05em;
   text-transform: uppercase;
   font-size: 0.75rem;
-}
-
-.tracking-ultra-wide {
-  letter-spacing: 0.2em;
-}
-
-/* Layout utilities */
-.min-h-section {
-  min-height: 60vh;
-}
-
-.section-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, #000000, transparent);
-}
-
-/* Header responsive padding */
-.header-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 4rem;
-}
-
-@media (max-width: 1024px) {
-  .header-container {
-    padding: 0 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .header-container {
-    padding: 0 2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .header-container {
-    padding: 0 1.5rem;
-  }
-}
-
-/* Force header styles - complete override */
-header * {
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  box-shadow: none !important;
-}
-
-header.fixed {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(8px) !important;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
-}
-
-header button,
-header button *,
-header a,
-header a * {
-  color: #000000 !important;
-  background: transparent !important;
-  background-color: transparent !important;
-  border: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-/* Specific override for language switch */
-header button[aria-label*="Switch"] {
-  display: flex !important;
-  align-items: center !important;
-  gap: 0.5rem !important;
-  color: #000000 !important;
-  background: none !important;
-  border: none !important;
-}
-
-/* Responsive grid systems */
-.grid-responsive {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 640px) {
-  .grid-responsive {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .grid-responsive {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.grid-auto-fit {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-}
-
-/* Section styling with rounded borders */
-.section-card {
-  margin: 2rem 0;
-  padding: 4rem 2rem;
-  background: white;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-}
-
-.section-card:hover {
-  border-color: rgba(0, 0, 0, 0.15);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-@media (max-width: 768px) {
-  .section-card {
-    margin: 1.5rem 0;
-    padding: 3rem 1.5rem;
-    border-radius: 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-card {
-    margin: 1rem 0;
-    padding: 2rem 1rem;
-    border-radius: 8px;
-  }
-}
-
-/* Section spacing */
-.section-padding {
-  padding: 6rem 0;
-}
-
-@media (max-width: 768px) {
-  .section-padding {
-    padding: 4rem 0;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-padding {
-    padding: 3rem 0;
-  }
 }

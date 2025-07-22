@@ -1,7 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
-
 // Work experience data
 const workExperience = [
   {
@@ -34,13 +32,7 @@ export default function WorkExperience() {
   return (
     <section id="work-experience">
       <div>
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-24"
-        >
+        <div className="mb-24">
           <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-black mb-6">
             Work Experience
           </h2>
@@ -48,18 +40,11 @@ export default function WorkExperience() {
           <p className="text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed">
             Professional experience and industry engagement.
           </p>
-        </motion.div>
+        </div>
 
         <div className="space-y-16">
           {workExperience.map((work, index) => (
-            <motion.div
-              key={work.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="border-b border-black pb-16 last:border-b-0"
-            >
+            <div key={work.id} className="border-b border-black pb-16 last:border-b-0">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-1">
                   <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-2">
@@ -92,7 +77,7 @@ export default function WorkExperience() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

@@ -1,6 +1,5 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { ExternalLink, Github } from "lucide-react"
 import { useLanguage } from "./LanguageProvider"
 
@@ -98,13 +97,7 @@ export default function Projects() {
     <section id="projects">
       <div>
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mb-24"
-        >
+        <div className="mb-24">
           <h2 className={`text-4xl sm:text-5xl font-light tracking-tight text-black mb-6 ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
             {t("projects.title")}
           </h2>
@@ -112,19 +105,12 @@ export default function Projects() {
           <p className={`text-lg font-light text-black opacity-70 max-w-2xl leading-relaxed ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
             {t("projects.subtitle")}
           </p>
-        </motion.div>
+        </div>
 
         {/* Projects */}
         <div className="space-y-24">
           {projectsData.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group"
-            >
+            <div key={index} className="group">
               <div className="border-b border-black pb-16 last:border-b-0">
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
                   {/* Project Number & Links */}
@@ -237,7 +223,7 @@ export default function Projects() {
                   </div>
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
