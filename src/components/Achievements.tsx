@@ -8,7 +8,7 @@ const achievements = [
     id: 1,
     title: "東北地区大学軟式野球連盟 連盟委員長",
     year: "2023年度",
-    description: "東北地区の大学軟式野球連盟において委員長を務め、リーダーシップと組織運営能力を発揮",
+    description: "東北地区の大学軟式野球連盟において委員長を務めた。一球速報を導入し運営の効率化、リーグ戦の活性化を達成",
     icon: Users,
     category: "leadership"
   },
@@ -16,7 +16,7 @@ const achievements = [
     id: 2,
     title: "東北大学工学部 3.5年の早期卒業",
     year: "2024年9月",
-    description: "優秀な成績により通常4年のところを3.5年で卒業を達成",
+    description: "3.5年で工学部機械知能・航空工学科を早期卒業",
     icon: Award,
     category: "academic"
   },
@@ -24,7 +24,7 @@ const achievements = [
     id: 3,
     title: "PKSHA HACKATHON 2025 最優秀賞",
     year: "2025年6月",
-    description: "AI技術を活用したプロダクト開発において最優秀賞を受賞",
+    description: "アルゴリズムエンジニアとして参加したAIエージェントハッカソンにおいて最優秀賞を受賞",
     icon: Trophy,
     category: "competition"
   }
@@ -46,26 +46,26 @@ export default function Achievements() {
             <div key={achievement.id} className="border border-black/10 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-1">
-                  <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-2">
+                  <p className="text-xs font-light text-black opacity-60 tracking-wide uppercase mb-2">
                     Year
                   </p>
-                  <p className="text-base font-light text-black">
+                  <p className="text-sm font-light text-black">
                     {achievement.year}
                   </p>
-                  <p className="text-sm font-light text-black opacity-70 mt-2 capitalize">
+                  <p className="text-xs font-light text-black opacity-70 mt-2 capitalize">
                     {achievement.category}
                   </p>
                 </div>
 
                 <div className="lg:col-span-2 space-y-6">
                   <div>
-                    <h3 className="text-2xl font-light text-black mb-4">
+                    <h3 className="text-lg font-light text-black mb-4">
                       {achievement.title}
                     </h3>
                   </div>
                   
                   <div className="max-w-xl">
-                    <p className="text-base font-light text-black opacity-70 leading-loose">
+                    <p className="text-sm font-light text-black opacity-70 leading-relaxed">
                       {achievement.description}
                     </p>
                   </div>

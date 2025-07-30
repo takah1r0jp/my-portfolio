@@ -22,7 +22,7 @@ export default function Education() {
           field: "工学部 機械知能・航空工学科",
           period: "2021年4月 - 2024年9月",
           note: "3.5年で早期卒業",
-          description: "機械工学、制御工学、航空宇宙工学の基礎を学び、3.5年で早期卒業を達成しました。"
+          description: ""
         }
       ]
     : [
@@ -63,7 +63,7 @@ export default function Education() {
                 {/* Period */}
                 <div className="lg:col-span-1">
                   <p className="text-xs font-light text-black opacity-60 tracking-wide uppercase mb-1">
-                    {language === 'ja' ? '期間' : 'Period'}
+                    {language === 'ja' ? 'Period' : 'Period'}
                   </p>
                   <p className="text-sm font-light text-black mb-1">
                     {edu.period}

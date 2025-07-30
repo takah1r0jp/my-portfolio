@@ -5,7 +5,7 @@ const workExperience = [
   {
     id: 1,
     company: "株式会社 zero-to-one",
-    position: "Intern",
+    position: "Internship",
     period: "2024/10 〜 現在",
     description: "AIの講義教材の作成やコンテンツ作成に従事",
     type: "intern"
@@ -44,14 +44,14 @@ export default function WorkExperience() {
             <div key={work.id} className="border border-black/10 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-1">
-                  <p className="text-sm font-light text-black opacity-60 tracking-wide uppercase mb-2">
+                  <p className="text-xs font-light text-black opacity-60 tracking-wide uppercase mb-2">
                     Period
                   </p>
-                  <p className="text-base font-light text-black">
+                  <p className="text-sm font-light text-black">
                     {work.period}
                   </p>
                   {work.type && (
-                    <p className="text-sm font-light text-black opacity-70 mt-2 capitalize">
+                    <p className="text-xs font-light text-black opacity-70 mt-2 capitalize">
                       {work.type}
                     </p>
                   )}
@@ -59,16 +59,16 @@ export default function WorkExperience() {
 
                 <div className="lg:col-span-2 space-y-6">
                   <div>
-                    <h3 className="text-2xl font-light text-black mb-2">
+                    <h3 className="text-lg font-light text-black mb-2">
                       {work.position}
                     </h3>
-                    <p className="text-lg font-light text-black opacity-70 mb-4">
+                    <p className="text-base font-light text-black opacity-70 mb-4">
                       {work.company}
                     </p>
                   </div>
                   
                   <div className="max-w-xl">
-                    <p className="text-base font-light text-black opacity-70 leading-loose">
+                    <p className="text-sm font-light text-black opacity-70 leading-relaxed">
                       {work.description}
                     </p>
                   </div>

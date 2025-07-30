@@ -1,6 +1,7 @@
 "use client"
 
 import { ExternalLink, Github } from "lucide-react"
+import Image from "next/image"
 import { useLanguage } from "./LanguageProvider"
 
 export default function Projects() {
@@ -11,30 +12,17 @@ export default function Projects() {
     ? [
         {
           title: "産業用画像異常検知システム",
-          description: "深層学習を用いた製造業向けの異常検知システムの開発。リアルタイムでの欠陥検出が可能。",
-          technologies: ["PyTorch", "OpenCV", "Python", "Streamlit"],
+          description: "LLMを用いた製造業向けの異常検知システムの開発。従来難しいとされている「論理的異常」の検出が可能。",
+          technologies: ["PyTorch", "Python", "LLM", "Object Detection"],
           category: "研究",
           status: "進行中",
+          thumbnail: "/project-thumbnails/anomaly-detection.png",
           features: [
             "論理的異常を対象",
             "LLMを活用した学習不要の異常検知フレームワーク",
-            "従来手法比較で20%精度向上を達成"
+            "MVTec LOCO AD上でベースラインモデル(GCAD,IJCV'22)から1.5%の精度向上を達成"
           ],
           link: "https://github.com/takah1r0jp/LLM4AD"
-        },
-        {
-          title: "PKSHAハッカソン2025 優勝作品",
-          description: "旅行プランを生成するAIシステムのアルゴリズム部分を担当。チームでの協力により最優秀賞を受賞。",
-          technologies: ["Python", "Machine Learning", "API Integration"],
-          category: "ハッカソン",
-          status: "完了",
-          achievement: "最優秀賞受賞",
-          role: "アルゴリズムエンジニア",
-          features: [
-            "自然言語処理による要求理解",
-            "最適化アルゴリズムによるプラン生成",
-            "リアルタイム推薦システム"
-          ]
         },
         {
           title: "異常検知体験アプリケーション",
@@ -42,12 +30,28 @@ export default function Projects() {
           technologies: ["Streamlit", "PyTorch", "Python"],
           category: "デモ",
           status: "完了",
+          thumbnail: "/project-thumbnails/demo-app.png",
           features: [
             "ドラッグ&ドロップでの画像アップロード",
             "異常検知プログラムの自動生成体験",
-            "結果の可視化"
+            "生成したプログラムの実行と結果の確認"
           ],
           demo: "https://takah1r0jp-streamlit-ad-app-appmain-ghw67a.streamlit.app"
+        },
+        {
+          title: "旅行プランニングエージェント「norun」",
+          description: "旅行プランを生成するAIシステムのアルゴリズム部分を担当。PKSHA HACKATHON 2025にて最優秀賞を受賞。",
+          technologies: ["Python", "Machine Learning", "API Integration"],
+          category: "ハッカソン",
+          status: "完了",
+          thumbnail: "/project-thumbnails/pksha-hackathon.jpg",
+          achievement: "最優秀賞受賞",
+          role: "アルゴリズムエンジニア",
+          features: [
+            "自然言語処理による要求理解",
+            "最適化アルゴリズムによるプラン生成",
+            "リアルタイム推薦システム"
+          ]
         }
       ]
     : [
@@ -57,6 +61,7 @@ export default function Projects() {
           technologies: ["PyTorch", "OpenCV", "Python", "Streamlit"],
           category: "Research",
           status: "Ongoing",
+          thumbnail: "/project-thumbnails/anomaly-detection.jpg",
           features: [
             "Targeting logical anomalies",
             "Training-free anomaly detection framework utilizing LLM",
@@ -70,6 +75,7 @@ export default function Projects() {
           technologies: ["Python", "Machine Learning", "API Integration"],
           category: "Hackathon",
           status: "Completed",
+          thumbnail: "/project-thumbnails/pksha-hackathon.jpg",
           achievement: "Grand Prize Winner",
           role: "Algorithm Engineer",
           features: [
@@ -84,6 +90,7 @@ export default function Projects() {
           technologies: ["Streamlit", "PyTorch", "Python"],
           category: "Demo",
           status: "Completed",
+          thumbnail: "/project-thumbnails/demo-app.jpg",
           features: [
             "Drag & drop image upload",
             "Automatic generation experience of anomaly detection programs",
@@ -109,11 +116,24 @@ export default function Projects() {
           {projectsData.map((project, index) => (
             <div key={index} className="border border-black/10 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-                {/* Project Number & Links */}
-                <div className="lg:col-span-1 space-y-6">
+                {/* Project Number, Thumbnail & Links */}
+                <div className="lg:col-span-2 space-y-6">
                   <div className="text-6xl font-light text-black opacity-20">
                     {String(index + 1).padStart(2, '0')}
                   </div>
+                  
+                  {/* Thumbnail */}
+                  {project.thumbnail && (
+                    <div className="w-full">
+                      <Image
+                        src={project.thumbnail}
+                        alt={project.title}
+                        width={200}
+                        height={150}
+                        className="w-full h-36 object-cover rounded-md border border-black/10 hover:opacity-80 transition-opacity"
+                      />
+                    </div>
+                  )}
                   
                   {/* Links */}
                   <div className="space-y-3">
@@ -143,11 +163,11 @@ export default function Projects() {
                 </div>
 
                 {/* Project Details */}
-                <div className="lg:col-span-4 space-y-8">
+                <div className="lg:col-span-3 space-y-8">
                   {/* Title & Status */}
                   <div>
                     <div className="flex flex-wrap items-start gap-4 mb-4">
-                      <h3 className={`text-3xl font-light text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+                      <h3 className={`text-xl font-light text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
                         {project.title}
                       </h3>
                       <div className="flex gap-2">
