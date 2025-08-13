@@ -44,45 +44,29 @@ export default function Projects() {
           technologies: ["Python", "Machine Learning", "API Integration"],
           category: "ハッカソン",
           status: "完了",
-          thumbnail: "/project-thumbnails/pksha-hackathon.jpg",
+          thumbnail: "/project-thumbnails/norun.png",
           achievement: "最優秀賞受賞",
           role: "アルゴリズムエンジニア",
           features: [
-            "自然言語処理による要求理解",
-            "最適化アルゴリズムによるプラン生成",
-            "リアルタイム推薦システム"
+            "LLMによる旅行プラン生成",
+            "部分的なプランの再生成も可能"
           ]
         }
       ]
     : [
         {
           title: "Industrial Image Anomaly Detection System",
-          description: "Development of anomaly detection system for manufacturing using deep learning. Capable of real-time defect detection.",
-          technologies: ["PyTorch", "OpenCV", "Python", "Streamlit"],
+          description: "Development of anomaly detection system for manufacturing using LLM. Capable of detecting 'logical anomalies' that were traditionally difficult.",
+          technologies: ["PyTorch", "Python", "LLM", "Object Detection"],
           category: "Research",
           status: "Ongoing",
-          thumbnail: "/project-thumbnails/anomaly-detection.jpg",
+          thumbnail: "/project-thumbnails/anomaly-detection.png",
           features: [
             "Targeting logical anomalies",
             "Training-free anomaly detection framework utilizing LLM",
-            "Achieved 20% accuracy improvement compared to conventional methods"
+            "Achieved 1.5% accuracy improvement from baseline model (GCAD, IJCV'22) on MVTec LOCO AD"
           ],
           link: "https://github.com/takah1r0jp/LLM4AD"
-        },
-        {
-          title: "PKSHA Hackathon 2025 Winner",
-          description: "Responsible for algorithm development of AI system for travel plan generation. Won the grand prize through team collaboration.",
-          technologies: ["Python", "Machine Learning", "API Integration"],
-          category: "Hackathon",
-          status: "Completed",
-          thumbnail: "/project-thumbnails/pksha-hackathon.jpg",
-          achievement: "Grand Prize Winner",
-          role: "Algorithm Engineer",
-          features: [
-            "Natural language processing for requirement understanding",
-            "Plan generation using optimization algorithms",
-            "Real-time recommendation system"
-          ]
         },
         {
           title: "Anomaly Detection Experience Application",
@@ -90,13 +74,27 @@ export default function Projects() {
           technologies: ["Streamlit", "PyTorch", "Python"],
           category: "Demo",
           status: "Completed",
-          thumbnail: "/project-thumbnails/demo-app.jpg",
+          thumbnail: "/project-thumbnails/demo-app.png",
           features: [
             "Drag & drop image upload",
-            "Automatic generation experience of anomaly detection programs",
-            "Result visualization"
+            "Experience automatic generation of anomaly detection programs",
+            "Execution and result verification of generated programs"
           ],
           demo: "https://takah1r0jp-streamlit-ad-app-appmain-ghw67a.streamlit.app"
+        },
+        {
+          title: "Travel Planning Agent 'norun'",
+          description: "Responsible for algorithm development of AI system for travel plan generation. Won the grand prize at PKSHA HACKATHON 2025.",
+          technologies: ["Python", "Machine Learning", "API Integration"],
+          category: "Hackathon",
+          status: "Completed",
+          thumbnail: "/project-thumbnails/norun.png",
+          achievement: "Grand Prize Winner",
+          role: "Algorithm Engineer",
+          features: [
+            "Travel plan generation using LLM",
+            "Partial plan regeneration capability"
+          ]
         }
       ]
 

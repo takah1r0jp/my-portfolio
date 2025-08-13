@@ -1,16 +1,28 @@
 "use client"
 
-// Skills data
-const skillsData = {
-  certifications: [
-    { name: "G検定", date: "2024年11月", organization: "日本ディープラーニング協会" },
-    { name: "E資格", date: "2025年2月", organization: "日本ディープラーニング協会" }
-  ],
-  languages: ["Python", "JavaScript"],
-  frameworks: ["React", "Next.js"]
-}
+import { useLanguage } from "./LanguageProvider"
 
 export default function Skills() {
+  const { language } = useLanguage()
+  
+  // Skills data based on language
+  const skillsData = language === 'ja'
+    ? {
+        certifications: [
+          { name: "G検定", date: "2024年11月", organization: "日本ディープラーニング協会" },
+          { name: "E資格", date: "2025年2月", organization: "日本ディープラーニング協会" }
+        ],
+        languages: ["Python", "JavaScript"],
+        frameworks: ["React", "Next.js"]
+      }
+    : {
+        certifications: [
+          { name: "G Test (Generalist)", date: "November 2024", organization: "Japan Deep Learning Association" },
+          { name: "E Certification (Engineer)", date: "February 2025", organization: "Japan Deep Learning Association" }
+        ],
+        languages: ["Python", "JavaScript"],
+        frameworks: ["React", "Next.js"]
+      }
   return (
     <section id="skills">
       <div>
@@ -25,13 +37,13 @@ export default function Skills() {
           {/* Certifications */}
           <div className="border border-black/10 rounded-lg p-6">
             <h3 className="text-lg font-light text-black mb-6 tracking-wide uppercase">
-              Certifications
+              {language === 'ja' ? '資格' : 'Certifications'}
             </h3>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               {skillsData.certifications.map((cert, index) => (
                 <div key={index} className="space-y-2">
-                  <h4 className="text-base font-light text-black">{cert.name}</h4>
-                  <p className="text-sm font-light text-black opacity-60">{cert.organization}</p>
+                  <h4 className={`text-base font-light text-black ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>{cert.name}</h4>
+                  <p className={`text-sm font-light text-black opacity-60 ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>{cert.organization}</p>
                   <p className="text-sm font-light text-black opacity-70">{cert.date}</p>
                 </div>
               ))}
@@ -41,7 +53,7 @@ export default function Skills() {
           {/* Programming Languages */}
           <div className="border border-black/10 rounded-lg p-6">
             <h3 className="text-lg font-light text-black mb-6 tracking-wide uppercase">
-              Programming Languages
+              {language === 'ja' ? 'プログラミング言語' : 'Programming Languages'}
             </h3>
             <div className="flex flex-wrap gap-3">
               {skillsData.languages.map((language, index) => (
@@ -58,7 +70,7 @@ export default function Skills() {
           {/* Frameworks */}
           <div className="border border-black/10 rounded-lg p-6">
             <h3 className="text-lg font-light text-black mb-6 tracking-wide uppercase">
-              Frameworks
+              {language === 'ja' ? 'フレームワーク' : 'Frameworks'}
             </h3>
             <div className="flex flex-wrap gap-3">
               {skillsData.frameworks.map((framework, index) => (
