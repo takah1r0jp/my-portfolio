@@ -2,7 +2,7 @@
 
 東北大学大学院でAI・機械学習・コンピュータビジョンを研究する鶴巻敬大のポートフォリオサイトです。
 
-## 🌍 Live Demo
+## 🌍 Web Page
 
 **[https://takah1r0.vercel.app/](https://takah1r0.vercel.app/)**
 
