@@ -2,6 +2,10 @@
 
 東北大学大学院でAI・機械学習・コンピュータビジョンを研究する鶴巻敬大のポートフォリオサイトです。
 
+## 🌍 Live Demo
+
+**[https://takah1r0.vercel.app/](https://takah1r0.vercel.app/)**
+
 ## 🌟 特徴
 
 - **モダンなデザイン**: Next.js 15 + TypeScript + Tailwind CSSで構築
@@ -188,5 +192,5 @@ vercel
 ---
 
 **作成者**: 鶴巻敬大  
-**連絡先**: takahiro.tsurumaki@example.com  
-**GitHub**: https://github.com/username
+**Portfolio**: [https://takah1r0.vercel.app/](https://takah1r0.vercel.app/)  
+**GitHub**: https://github.com/takah1r0jp
