@@ -5,7 +5,7 @@ import Image from "next/image"
 import { useLanguage } from "./LanguageProvider"
 
 export default function Projects() {
-  const { t, language } = useLanguage()
+  const { language } = useLanguage()
   
   // Project data based on language
   const projectsData = language === 'ja' 

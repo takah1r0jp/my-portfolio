@@ -70,7 +70,7 @@ export default function WorkExperience() {
         </div>
 
         <div className="space-y-6">
-          {workExperience.map((work, index) => (
+          {workExperience.map((work) => (
             <div key={work.id} className="border border-black/10 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
                 <div className="lg:col-span-1">

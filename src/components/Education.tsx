@@ -3,7 +3,7 @@
 import { useLanguage } from "./LanguageProvider"
 
 export default function Education() {
-  const { t, language } = useLanguage()
+  const { language } = useLanguage()
   
   // Access the education items from translations
   const educationItems = language === 'ja' 
@@ -57,7 +57,7 @@ export default function Education() {
 
         {/* Education Items */}
         <div className="space-y-6">
-          {educationItems.map((edu, index: number) => (
+          {educationItems.map((edu, index) => (
             <div key={index} className="border border-black/10 rounded-lg p-6">
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {/* Period */}
