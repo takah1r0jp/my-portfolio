@@ -10,14 +10,22 @@ export default function WorkExperience() {
     ? [
         {
           id: 1,
-          company: "株式会社 zero-to-one",
-          position: "Internship",
-          period: "2024/10 〜 現在",
-          description: "AIの講義教材の作成やコンテンツ作成に従事",
+          company: "NSSOL R&D",
+          position: "3weeks Internship",
+          period: "2025/8",
+          description: "人の行動解析に関する研究開発。リアルタイムで人の食事行動を検出し呼びかけをするヘルスケアシステムを開発",
           type: "internship"
         },
         {
           id: 2,
+          company: "PKSHA Technology",
+          position: "3days Hackathon",
+          period: "2025/6",
+          description: "AI技術を活用したプロダクト開発ハッカソンに参加",
+          type: "hackathon"
+        },
+        {
+          id: 3,
           company: "株式会社 onecareer",
           position: "3days Business Internship",
           period: "2025/3",
@@ -25,25 +33,33 @@ export default function WorkExperience() {
           type: "internship"
         },
         {
-          id: 3,
-          company: "PKSHA Technology",
-          position: "3days Hackathon",
-          period: "2025/6",
-          description: "AI技術を活用したプロダクト開発ハッカソンに参加",
-          type: "hackathon"
+          id: 4,
+          company: "株式会社 zero-to-one",
+          position: "Internship",
+          period: "2024/10 〜 現在",
+          description: "AIに関する講義資料・演習の作成を担当。AIに関する知識のブログ記事も作成",
+          type: "internship"
         }
       ]
     : [
         {
           id: 1,
-          company: "zero-to-one Corporation",
-          position: "Internship",
-          period: "October 2024 - Present",
-          description: "Engaged in creating AI lecture materials and content development",
-          type: "intern"
+          company: "NSSOL R&D",
+          position: "3-week Internship",
+          period: "August 2025",
+          description: "Research and development on human behavior analysis. Developed a healthcare system that detects eating behavior in real-time and provides notifications",
+          type: "internship"
         },
         {
           id: 2,
+          company: "PKSHA Technology",
+          position: "3-day Hackathon",
+          period: "June 2025",
+          description: "Participated in product development hackathon utilizing AI technology",
+          type: "hackathon"
+        },
+        {
+          id: 3,
           company: "onecareer Corporation",
           position: "3-day Business Internship",
           period: "March 2025",
@@ -51,12 +67,12 @@ export default function WorkExperience() {
           type: "internship"
         },
         {
-          id: 3,
-          company: "PKSHA Technology",
-          position: "3-day Hackathon",
-          period: "June 2025",
-          description: "Participated in product development hackathon utilizing AI technology",
-          type: "hackathon"
+          id: 4,
+          company: "zero-to-one Corporation",
+          position: "Internship",
+          period: "October 2024 - Present",
+          description: "Responsible for creating AI lecture materials and exercises. Also created blog articles on AI knowledge and concepts",
+          type: "internship"
         }
       ]
   return (

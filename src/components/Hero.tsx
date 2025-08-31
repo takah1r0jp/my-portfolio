@@ -9,46 +9,33 @@ export default function Hero() {
   const { t, language } = useLanguage()
 
   return (
-    <section className="pt-20 pb-16 bg-white min-h-screen flex items-center">
+    <section className="pt-20 pb-16 bg-gray-100 min-h-screen flex items-center">
       <div className="container-standard w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           {/* Content */}
           <div className="lg:col-span-8">
             {/* Name */}
-            <div className="mb-2">
-              <h1 className={`text-3xl sm:text-4xl lg:text-5xl text-display text-black font-bold ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
+            <div className="mb-6">
+              <h1 className={`text-4xl sm:text-5xl lg:text-6xl text-display text-black font-bold ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
                 {t("hero.title")}
               </h1>
             </div>
 
             {/* Subtitle */}
-            <div className="">
-              <p className="text-4xl text-heading text-black opacity-70 font-bold">
+            <div className="mb-6">
+              <p className="text-2xl sm:text-3xl text-heading text-black opacity-70 font-bold">
                 {t("hero.subtitle")}
               </p>
             </div>
 
-            {/* Description */}
+            {/* Basic Info */}
             <div className="mb-8">
-            <p className="text-lg text-body text-black max-w-2xl font-bold">
+              <p className="text-lg text-body text-black font-bold mb-2">
                 {t("hero.affiliation")}
               </p>
-              <p className="text-lg text-body text-black max-w-2xl font-bold">
-                Interests
+              <p className="text-lg text-body text-black font-bold mb-2">
+                Interests : LLM・画像認識・異常検知・プロダクト開発
               </p>
-              <p className="text-sm text-body text-black max-w-2xl">
-                {t("hero.description")}
-              </p>
-            </div>
-
-
-            {/* Introduction */}
-            <div className="mb-12">
-              <div className="border-l-2 border-black pl-6">
-                <p className={`text-base text-body text-black max-w-3xl ${language === 'ja' ? 'font-japanese' : 'font-sans'}`}>
-                  {t("hero.introduction")}
-                </p>
-              </div>
             </div>
 
             {/* Contact Links */}
@@ -96,8 +83,8 @@ export default function Hero() {
               <Image
                 src="/profile.jpeg"
                 alt="Profile"
-                width={200}
-                height={200}
+                width={250}
+                height={250}
                 className="object-cover rounded-full border-4 border-black"
                 priority
               />

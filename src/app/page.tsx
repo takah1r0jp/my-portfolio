@@ -1,5 +1,5 @@
-import Header from "@/components/Header"
 import Hero from "@/components/Hero"
+import AboutMe from "@/components/AboutMe"
 import Education from "@/components/Education"
 import Projects from "@/components/Projects"
 import WorkExperience from "@/components/WorkExperience"
@@ -9,10 +9,12 @@ import Skills from "@/components/Skills"
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
-      <Header />
       <main>
         <Hero />
         <div className="container-standard">
+          <div className="section-card">
+            <AboutMe />
+          </div>
           <div className="section-card">
             <Education />
           </div>
