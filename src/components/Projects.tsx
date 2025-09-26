@@ -36,7 +36,7 @@ export default function Projects() {
             "異常検知プログラムの自動生成体験",
             "生成したプログラムの実行と結果の確認"
           ],
-          demo: "https://takah1r0jp-streamlit-ad-app-appmain-ghw67a.streamlit.app"
+          demo: "https://detect-generater.xyz"
         },
         {
           title: "旅行プランニングエージェント「norun」",
